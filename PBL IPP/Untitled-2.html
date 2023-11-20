@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Input Label Animation | CoderGirl</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #060b23;
+    }
+
+    .form-box {
+      background: #0f1936;
+      padding: 20px;
+      border-radius: 6px;
+      box-shadow: 1px 1px 1px white;
+    }
+
+    .input-field {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .input-field input {
+      width: 350px;
+      height: 60px;
+      border-radius: 6px;
+      font-size: 18px;
+      padding: 0 15px;
+      border: 2px solid #fff;
+      background: transparent;
+      color: #fff;
+      outline: none;
+      margin-bottom: 15px;
+    }
+
+    .input-field label {
+      position: absolute;
+      top: 50%;
+      left: 15px;
+      transform: translateY(-50%);
+      color: #fff;
+      font-size: 19px;
+      pointer-events: none;
+      transition: 0.3s;
+    }
+
+    input:focus {
+      border: 2px solid #22dcdc;
+    }
+
+    input:focus~label,
+    input:valid~label {
+      top: 0;
+      left: 15px;
+      font-size: 16px;
+      padding: 0 2px;
+      background: #0f1936;
+    }
+
+    .login {
+      background: transparent;
+      color: aliceblue;
+      height: 30px;
+      border-radius: 10px;
+      box-shadow: 1px 1px 1px white;
+    }
+
+    .login:hover {
+      cursor: pointer;
+      background: rgb(47, 186, 220);
+      margin-top: 15px;
+    }
+
+    .confirmation {
+      color: #fff;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="form-box">
+    <form id="loginForm">
+      <div class="input-field">
+        <input type="text" id="nameInput" required spellcheck="false">
+        <label>NAME</label>
+      </div>
+
+      <div class="input-field">
+        <input type="number" id="tableInput" required spellcheck="false">
+        <label>TABLE</label>
+      </div>
+      <button class="login" type="submit">BOOK</button>
+    </form>
+    <p class="confirmation" id="confirmationMessage"></p>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      var name = document.getElementById('nameInput').value;
+      var table = document.getElementById('tableInput').value;
+      var confirmationMessage = "Table " + table + " is booked with the name " + name;
+      document.getElementById('confirmationMessage').textContent = confirmationMessage;
+    });
+    document.getElementById('loginForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+
+</html>
